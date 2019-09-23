@@ -24,7 +24,7 @@ public class WorkController {
 	@Autowired
 	private WorkService workService;
 	
-	// Add new work
+	// Add new work entry
 	@PostMapping("/todo")
 	public String addWork(@RequestBody Work work) {
 		workService.addWork(work);
@@ -32,7 +32,7 @@ public class WorkController {
 		return "Entry added!" ;
 	}
 	
-	// Update work by id
+	// Update entry by id
 	@PutMapping("/todo/{id}")
 	public String editWork(@RequestBody Work work, @PathVariable int id) {
 		if (id == 0) {
@@ -44,7 +44,7 @@ public class WorkController {
 		return "Entry updated!" ;
 	}
 	
-	// Delete work by id
+	// Delete entry by id
 	@DeleteMapping("/todo/{id}")
 	public String deleteWork(@PathVariable int id) {
 		if (id == 0) {
@@ -55,8 +55,7 @@ public class WorkController {
 		return "Entry deleted!";
 	}
 	
-	// Fetch list work
-	// Sort Strategy:
+	// Fetch list of work entries
 	@GetMapping("/todo")
 	public List<Work> getWork(@RequestParam(defaultValue = "endDate", value = "sort_by") String sortBy, 
 			@RequestParam(defaultValue = "asc", value = "order_by") String orderBy,
