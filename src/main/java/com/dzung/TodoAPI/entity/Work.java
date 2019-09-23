@@ -31,7 +31,11 @@ public class Work {
 	private Date endDate;
 	
 	@Column(name="STATUS")
-	private String status;
+	private int status;
+	
+	private static final int PLANNING = 0;
+	private static final int DOING = 1;
+	private static final int COMPLETE = 2;
 
 	public int getId() {
 		return id;
@@ -65,11 +69,11 @@ public class Work {
 		this.endDate = endDate;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	
