@@ -9,36 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="WORK")
 public class Work {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int id;
 	
-	@Column(name="DESC")
+	@Column(name="NAME")
 	private String name;
 	
 	@Column(name="START_DATE")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
 	private Date startDate;
 	
 	@Column(name="END_DATE")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
 	private Date endDate;
 	
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	private int status;
-	
-	private final int PLANNING = 0;
-	private final int DOING = 1;
-	private final int COMPLETE = 2;
+	@Column(name="STATUS")
+	private String status;
 
 	public int getId() {
 		return id;
@@ -56,13 +49,31 @@ public class Work {
 		this.name = name;
 	}
 
-	public int getStatus() {
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
 
 	
 }
