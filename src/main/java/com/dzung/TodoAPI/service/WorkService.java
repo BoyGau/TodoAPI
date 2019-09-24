@@ -7,9 +7,9 @@ import com.dzung.TodoAPI.entity.Work;
 public interface WorkService {
 	public void addWork(Work work);
 	
-	public void editWork(Work work);
+	public void editWork(Work work, int id);
 	
-	public void deleteWork(Work work);
+	public void deleteWork(int id);
 	
-	public List<Work> getWorks();
+	public List<Work> getWorks(String sortBy, String orderBy, int limit, int offset);
 }
