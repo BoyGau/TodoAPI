@@ -33,9 +33,9 @@ public class Work {
 	@Column(name="STATUS")
 	private int status;
 	
-	private static final int PLANNING = 0;
-	private static final int DOING = 1;
-	private static final int COMPLETE = 2;
+	public static final int STATUS_DOING = 0;
+	public static final int STATUS_PLANNING = 1;
+	public static final int STATUS_COMPLETED = 2;
 
 	public int getId() {
 		return id;
